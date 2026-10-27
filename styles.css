@@ -19,12 +19,65 @@ main {
 	padding: 0;
 }
 
-main > div {
+.content,
+.image-container {
 	width: min(100vw, 100%);
 	height: min(100vh, 100%);
 }
 
-img {
+.content {
+	display: grid;
+	place-items: center;
+}
+
+.letter {
+	position: relative;
+	width: min(90vw, 854px);
+	/* Modifica questi valori per tagliare i bordi delle GIF della lettera. */
+	--gif-crop-top: 10px;
+	--gif-crop-right: 30px;
+	--gif-crop-bottom: 28px;
+	--gif-crop-left: 30px;
+	padding: 0;
+	border: 0;
+	background: transparent;
+	cursor: pointer;
+	transition: transform 180ms ease;
+}
+
+.letter:hover,
+.letter:focus-visible {
+	transform: translateY(-6px) rotate(-1deg);
+}
+
+.letter:focus-visible {
+	outline: 4px solid #f7c948;
+	outline-offset: 6px;
+}
+
+.letter > img {
+	display: block;
+	width: 100%;
+	height: auto;
+	/*
+	 * Il ritaglio usa la sintassi:
+	 * alto destra basso sinistra
+	 * Esempio: inset(20px 10px 20px 10px).
+	 */
+	clip-path: inset(
+		var(--gif-crop-top)
+		var(--gif-crop-right)
+		var(--gif-crop-bottom)
+		var(--gif-crop-left)
+	);
+}
+
+.image-container {
+	position: absolute;
+	inset: 0;
+}
+
+.image-container img {
 	display: block;
 	width: 100%;
 	height: 100%;

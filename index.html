@@ -9,9 +9,31 @@
 </head>
 <body>
   <main>
-    <div>
-      <img src="images/please.jpeg">
+    <div class="content">
+      <button class="letter" type="button" aria-label="Apri la lettera" aria-controls="image-container">
+        <img id="letter-image" src="images/closed.gif" alt="Lettera chiusa">
+      </button>
+
+      <div id="image-container" class="image-container" hidden>
+        <img src="images/please.jpeg" alt="Immagine nella lettera">
+      </div>
     </div>
   </main>
+  <script>
+    const letter = document.querySelector('.letter');
+    const letterImage = document.querySelector('#letter-image');
+    const imageContainer = document.querySelector('#image-container');
+
+    letter.addEventListener('click', () => {
+      letter.disabled = true;
+      letterImage.src = 'images/opening.gif';
+      letterImage.alt = 'Lettera in apertura';
+
+      window.setTimeout(() => {
+        letter.hidden = true;
+        imageContainer.hidden = false;
+      }, 1000);
+    });
+  </script>
 </body>
 </html>
