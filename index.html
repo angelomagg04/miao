@@ -11,7 +11,7 @@
   <main>
     <div class="content">
       <button class="letter" type="button" aria-label="Apri la lettera" aria-controls="image-container">
-        <img id="letter-image" src="images/closed.gif" alt="Lettera chiusa">
+        <img id="letter-image" src="images/giphy.gif" alt="Lettera animata">
       </button>
 
       <div id="image-container" class="image-container" hidden>
@@ -26,7 +26,7 @@
 
     letter.addEventListener('click', () => {
       letter.disabled = true;
-      letterImage.src = 'images/opening.gif';
+      letterImage.src = 'images/giphy.gif';
       letterImage.alt = 'Lettera in apertura';
 
       window.setTimeout(() => {
