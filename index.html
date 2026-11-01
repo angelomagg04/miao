@@ -26,13 +26,15 @@
 
     letter.addEventListener('click', () => {
       letter.disabled = true;
+      letter.classList.add('is-opening');
       letterImage.src = 'images/giphy.gif';
       letterImage.alt = 'Lettera in apertura';
 
       window.setTimeout(() => {
         letter.hidden = true;
         imageContainer.hidden = false;
-      }, 1000);
+        imageContainer.classList.add('is-opening');
+      }, 700);
     });
   </script>
 </body>
